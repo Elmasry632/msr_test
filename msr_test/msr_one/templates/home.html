@@ -1,0 +1,10 @@
+{%extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block header %}
+<ol class="breadcrumb my-4" style="background-color: #adacac">
+    <li class="breadcrumb-item">
+        <a href="{% url 'msr_one' %}">Home</a>
+    </li>
+    <li class="breadcrumb-item active">{{Elmasry}}</li>
+</ol>
+{% endblock %}
