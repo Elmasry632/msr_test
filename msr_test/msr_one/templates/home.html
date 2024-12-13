@@ -1,34 +1,37 @@
 {%extends 'base.html' %}
-{% block title %}Home{% endblock %}
-{% block header %}
-<ol class="breadcrumb my-4" style="background-color: #adacac">
-    <li class="breadcrumb-item">
-        <a href="{% url 'projects_details' %}">Home</a>
-    </li>
-    <li class="breadcrumb-item active">{{Elmasry}}</li>
-</ol>
+{% block title %}Home
 {% endblock %}
-{% block table %} 
-<div class="table-responsive container">
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <td>Project Name</td>
+{% block header %}
+	<ol class="breadcrumb my-4" style="background-color: #adacac">
+		<li class="breadcrumb-item">
+			<a class="text-decoration-none p-3" href="{% url 'projects_details' %}">Home</a>
+		</li>
+		<li class="breadcrumb-item active">{{Elmasry}}</li>
+	</ol>
+{% endblock %}
+{% block table %}
+	<div class="table-responsive container">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>Project Name</td>
 
-            <td>Created by</td>
+					<td>Created by</td>
 
-        </tr>
-    </thead>
-    <tbody>
-        {% for project in projects %}
-        <tr>
-            <td><a href="{% url 'project_detail' project.id%}" >{{project.project_name}}</a></td>
+				</tr>
+			</thead>
+			<tbody>
+				{% for project in projects %}
+					<tr>
+						<td>
+							<a class="text-decoration-none btn btn-link" href="{% url 'project_detail' project.id%}">{{project.project_name}}</a>
+						</td>
 
-            <td>{{project.created_by}}</td>
+						<td>{{project.created_by}}</td>
 
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-</div>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}

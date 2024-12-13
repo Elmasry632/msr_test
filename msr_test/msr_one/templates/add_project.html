@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% block title %}
+	New Project
+{% endblock %}
+
+{% block header %}
+	<ol class="breadcrumb my-4" style="background-color: #adacac">
+		<li class="breadcrumb-item">
+			<a href="{% url 'projects_details' %}">Home</a>
+		</li>
+		{% if  projects%}
+			<li class="breadcrumb-item">
+				<a class="text-primary text-decoration-none" href="{% url 'project_detail' board.id %}">{{ board.project_name }}</a>
+			</li>
+		{% endif %}
+
+		<li class="breadcrumb-item active">New Project</li</ol>
+	{% endblock %}
+	{% block form %}
+		<div class="container">
+			<form method="post" class="form-control">
+				{% csrf_token %}
+				<div class="form-group">
+					<label for="pro_name">
+						Project name
+					</label>
+					<input type="text" name="pro_name" id="id_project_name" class="form-control"></div>
+					<div class="form-group">
+						<label for="pro_desc">
+							Project description
+						</label>
+						<textarea name="pro_desc" id="id_project_description" class="form-control" raw="6"></textarea>
+					</div>
+					<div class="form-group">
+						<br>
+							<button type="submit" class="btn btn-success">Add Project</button>
+						</form>
+					</div>
+				</div>
+			{% endblock %}
