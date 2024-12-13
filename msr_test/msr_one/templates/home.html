@@ -3,8 +3,32 @@
 {% block header %}
 <ol class="breadcrumb my-4" style="background-color: #adacac">
     <li class="breadcrumb-item">
-        <a href="{% url 'msr_one' %}">Home</a>
+        <a href="{% url 'projects_details' %}">Home</a>
     </li>
     <li class="breadcrumb-item active">{{Elmasry}}</li>
 </ol>
+{% endblock %}
+{% block table %} 
+<div class="table-responsive container">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Project Name</td>
+
+            <td>Created by</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td><a href="{% url 'project_detail' project.id%}" >{{project.project_name}}</a></td>
+
+            <td>{{project.created_by}}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
 {% endblock %}
